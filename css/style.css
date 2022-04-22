@@ -1,5 +1,6 @@
 :root {
   --clr-primary: #a33a4c;
+  --clr-secondery: #f3f3f3;
   --clr-dark: #0c0e36;
   --clr-light: #fff;
   --fw-normal: 400;
@@ -14,7 +15,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: var(--clr-light);
+  background-color: var(--clr-secondery);
   font-family: "Work Sans", sans-serif;
   font-size: 1rem;
   font-weight: var(--fw-normal);
@@ -39,7 +40,8 @@ p {
 .header__logo img:hover {
   transform: rotate(90deg);
   background-color: var(--clr-primary);
-  width:120%;
+  width: 60%;
+  border-radius: 50%;
 }
 .header__title {
   text-align: center;
@@ -103,9 +105,13 @@ p {
   display: flex;
   justify-content: space-evenly;
   padding: 3rem 1rem;
-  background-color: #C7C4BD;
+  background-color: #c7c4bd;
   grid-area: skills;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
+}
+.main__content h2 {
+  text-decoration: underline var(--clr-primary) 0.3rem;
+  margin-left: -1rem;
 }
 .main__content img {
   width: 12rem;
@@ -133,7 +139,7 @@ p {
 }
 .main__rightsidebar ul li {
   list-style: none;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
 }
 .main__rightsidebar img {
   width: 12rem;
@@ -213,9 +219,6 @@ p {
 }
 
 @media (min-width: 45rem) {
-  p {
-    max-width: 40ch;
-  }
   .navbar {
     padding: 1.5rem 5rem;
     width: 100%;
@@ -224,6 +227,16 @@ p {
     grid-template-areas:
       "about skills"
       "portfolio portfolio";
+  }
+  .main__content {
+    background-color: var(--clr-secondery);
+  }
+  .main__content img {
+    width: 14rem;
+    margin: 0 2rem;
+  }
+  .main__content h2 {
+    margin-left: -.3rem;
   }
   .main__content .skills__items {
     font-size: 0.8rem;
@@ -239,9 +252,15 @@ p {
 }
 
 @media (min-width: 70rem) {
+  p {
+    max-width: 40ch;
+  }
   .main {
-    grid-template-areas:
-      "about skills portfolio";
+    grid-template-areas: "about skills portfolio";
+  }
+  .main__content img {
+    width: 14rem;
+    margin: 0 1rem;
   }
   .main__rightsidebar img {
     width: 10rem;
