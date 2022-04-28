@@ -1,7 +1,7 @@
 :root {
   --clr-primary: #a33a4c;
-  --clr-secondery: #f3f3f3;
-  --clr-dark: #0c0e36;
+  --clr-secondery: #e9e9e9;
+  --clr-dark: #17173b;
   --clr-light: #fff;
   --fw-normal: 400;
   --fw-bold: 700;
@@ -27,11 +27,17 @@ p {
 }
 .header {
   background-color: var(--clr-dark);
-  color: var(--clr-light);
+  background-image: url("../images/background-image.avif");
+  background-size: cover;
+  background-blend-mode: multiply;
+  height: 60vh;
+  color: var(--clr-secondery);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header__title {
   text-align: center;
-  padding: 8rem 0 3rem;
 }
 .header__title h1 {
   text-transform: uppercase;
@@ -46,29 +52,30 @@ p {
   letter-spacing: 0.1rem;
 }
 .navbar {
+  background-color: var(--clr-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem 0.5rem;
+  padding: 0.5rem 1.5rem;
   margin: 0;
   width: 100%;
-  position: fixed;
-  top: 0;
-  background-color: inherit;
+  position: sticky;
+  top:0;
+  z-index: 1;
   opacity: 0.9;
 }
 .navbar__logo {
   max-width: 6rem;
 }
 .navbar__logo img {
-  width: 100%;
+  width: 50%;
   height: auto;
   transition: all 2s ease-in-out;
 }
 .navbar__logo img:hover {
   transform: rotate(15deg);
   background-color: var(--clr-primary);
-  width: 90%;
+  width: 55%;
   border-radius: 50%;
 }
 .navbar__items {
@@ -88,7 +95,6 @@ p {
   font-weight: var(--fw-bold);
 }
 .main {
-  margin: 2rem 0;
   display: grid;
   grid-gap: 1rem;
   grid-template-areas:
@@ -100,11 +106,12 @@ p {
   font-size: 2rem;
   font-weight: var(--fw-bold);
   text-align: start;
-  padding-bottom: 1.5rem;
+  padding: 4rem 0 1.5em;
 }
 .main__content {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 2rem;
   padding: 3rem 1rem;
   background-color: #c7c4bd;
   grid-area: skills;
@@ -113,6 +120,7 @@ p {
 .main__content h2 {
   text-decoration: underline var(--clr-primary) 0.3rem;
   margin-left: -1rem;
+  padding: 0 0 .5rem;
 }
 .main__content img {
   max-width: 12rem;
@@ -124,15 +132,17 @@ p {
   list-style: square url("../images/list-style.png");
 }
 .main__leftsidebar {
-  padding: 2rem 1rem;
+  padding: 0 1rem;
   grid-area: about;
 }
 .main__rightsidebar {
   grid-area: portfolio;
+  margin-bottom: 4rem;
+
 }
 .main__rightsidebar h2 {
   text-align: center;
-  padding: 1.5rem;
+  padding: 4rem 0 1.5rem;
 }
 .main__rightsidebar span {
   font-weight: var(--fw-normal);
@@ -224,9 +234,11 @@ p {
 }
 
 @media (min-width: 45rem) {
+  .header {
+    height: 80vh;
+  }
   .navbar {
-    padding: 1.5rem 5rem;
-    width: 100%;
+    padding: 0.5rem 5rem;
   }
   .main {
     grid-template-areas:
@@ -257,6 +269,9 @@ p {
 }
 
 @media (min-width: 70rem) {
+  .header {
+    height: 100vh;
+  }
   p {
     max-width: 40ch;
   }
