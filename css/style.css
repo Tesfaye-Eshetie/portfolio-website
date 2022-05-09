@@ -68,14 +68,12 @@ p {
   max-width: 6rem;
 }
 .navbar__logo img {
-  width: 50%;
+  width: 90%;
   height: auto;
   transition: all 2s ease-in-out;
 }
 .navbar__logo img:hover {
-  transform: rotate(15deg);
-  background-color: var(--clr-primary);
-  width: 55%;
+  width: 100%;
   border-radius: 50%;
 }
 .navbar__items {
@@ -93,6 +91,7 @@ p {
 .navbar__link:hover {
   text-shadow: 0.1rem 0.1rem var(--clr-primary);
   font-weight: var(--fw-bold);
+  text-decoration: 2px underline rgb(241, 204, 135);
 }
 .main {
   display: grid;
