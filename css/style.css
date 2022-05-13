@@ -60,7 +60,7 @@ p {
   margin: 0;
   width: 100%;
   position: sticky;
-  top:0;
+  top: 0;
   z-index: 1;
   opacity: 0.9;
 }
@@ -76,12 +76,48 @@ p {
   width: 100%;
   border-radius: 50%;
 }
+
+#navbar__check {
+  display: none;
+}
+.navbar__btn {
+  display: inline-block;
+  position: absolute;
+  
+  right: 0px;
+  top: 0px;
+}
+.navbar__btn > label {
+  display: inline-block;
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+  padding: 1rem 1.5rem;
+}
+
+.navbar__btn > label > span {
+  display: block;
+  width: 25px;
+  height: 10px;
+  border-top: 2px solid #eee;
+}
 .navbar__items {
+  position: absolute;
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: var(--clr-dark);
+  height: 0px;
+  transition: all 0.3s ease-in;
+  overflow-y: hidden;
+  top: 50px;
+  left: 0px;
 }
 .navbar__list {
   list-style: none;
-  padding-left: 1rem;
+  padding-left: 2rem;
 }
 .navbar__link {
   text-decoration: none;
@@ -92,6 +128,17 @@ p {
   text-shadow: 0.1rem 0.1rem var(--clr-primary);
   font-weight: var(--fw-bold);
   text-decoration: 2px underline rgb(241, 204, 135);
+}
+ #navbar__check:not(:checked) ~ .navbar__items {
+  height: 0px;
+}
+ #navbar__check:checked ~ .navbar__items {
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+.container {
+  max-width: 1024px;
+  margin: 2rem auto;
 }
 .main {
   display: grid;
@@ -119,7 +166,7 @@ p {
 .main__content h2 {
   text-decoration: underline var(--clr-primary) 0.3rem;
   margin-left: -1rem;
-  padding: 0 0 .5rem;
+  padding: 0 0 0.5rem;
 }
 .main__content img {
   max-width: 12rem;
@@ -137,7 +184,6 @@ p {
 .main__rightsidebar {
   grid-area: portfolio;
   margin-bottom: 4rem;
-
 }
 .main__rightsidebar h2 {
   text-align: center;
@@ -234,11 +280,31 @@ p {
 
 @media (min-width: 45rem) {
   .header {
-    height: 80vh;
+    height: 90vh;
+  }
+  p {
+    max-width: 40ch;
   }
   .navbar {
     padding: 0.5rem 5rem;
   }
+  .navbar > .navbar__btn {
+    display: none;
+  }  
+  #navbar__check:checked ~ .navbar__items {
+    height: auto;
+    overflow-y: hidden;
+  }
+   .navbar__items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: static;
+    overflow-y: visible;
+    width: auto;
+  }
+
   .main {
     grid-template-areas:
       "about skills"
@@ -248,7 +314,7 @@ p {
     background-color: var(--clr-secondery);
   }
   .main__content img {
-    width: 14rem;
+    width: 16rem;
     margin: 0 2rem;
   }
   .main__content h2 {
@@ -259,29 +325,10 @@ p {
     padding: 0 2rem;
   }
   .main__rightsidebar img {
-    max-width: 16rem;
+    max-width: 20rem;
   }
   .contact__info {
     flex-direction: row;
     justify-content: space-evenly;
-  }
-}
-
-@media (min-width: 70rem) {
-  .header {
-    height: 100vh;
-  }
-  p {
-    max-width: 40ch;
-  }
-  .main {
-    grid-template-areas: "about skills portfolio";
-  }
-  .main__content img {
-    max-width: 14rem;
-    margin: 0 1rem;
-  }
-  .main__rightsidebar img {
-    width: 8rem;
   }
 }
